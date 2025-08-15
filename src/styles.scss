@@ -1,1 +1,35 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global styles for Wedding Invitation */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Cormorant Garamond', serif;
+  background: #f8f4f0;
+  overflow-x: hidden;
+}
+
+html, body {
+  height: 100%;
+}
+
+// Scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4a484;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b8956f;
+}
