@@ -644,7 +644,7 @@ body {
     }
 
     .invitation-image {
-      min-height: 50vh; // Reduced height for horizontal layout
+      min-height: 70vh; // Increased height for mobile layout
       display: flex;
       align-items: center;
       justify-content: center;
@@ -660,7 +660,7 @@ body {
         .main-invitation {
           width: 100%; // Force full width
           height: auto;
-          max-height: 45vh; // Limit height to force horizontal appearance
+          max-height: 65vh; // Increased max height for taller image
           object-fit: cover; // Cover the container for horizontal effect
           object-position: center;
           opacity: 0.88;
@@ -762,7 +762,7 @@ body {
 
   @media (max-width: 480px) {
     .invitation-image {
-      min-height: 45vh; // Compact height for very small screens
+      min-height: 60vh; // Increased height for very small screens
       display: flex;
       align-items: center;
       justify-content: center;
@@ -778,7 +778,7 @@ body {
         .main-invitation {
           width: 100%; // Force full width on small screens
           height: auto;
-          max-height: 40vh; // Limit height to maintain horizontal appearance
+          max-height: 55vh; // Increased max height for taller image on small screens
           object-fit: cover; // Cover for horizontal effect
           object-position: center;
           opacity: 0.85;
