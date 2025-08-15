@@ -644,15 +644,29 @@ body {
     }
 
     .invitation-image {
+      min-height: 50vh; // Reduced height for horizontal layout
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       .image-container {
-        padding: 15px;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         .main-invitation {
-          max-width: 100%;
+          width: 100%; // Force full width
+          height: auto;
+          max-height: 45vh; // Limit height to force horizontal appearance
+          object-fit: cover; // Cover the container for horizontal effect
+          object-position: center;
           opacity: 0.88;
-          object-fit: contain;
           animation: float 3s ease-in-out infinite, subtleGlow 4s ease-in-out infinite alternate;
           filter: brightness(1.05) contrast(1.03) saturate(1.08);
+          border-radius: 10px;
 
           &:hover {
             opacity: 0.92;
@@ -748,15 +762,29 @@ body {
 
   @media (max-width: 480px) {
     .invitation-image {
+      min-height: 45vh; // Compact height for very small screens
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
       .image-container {
-        padding: 10px;
+        padding: 5px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         .main-invitation {
-          max-width: 100%;
+          width: 100%; // Force full width on small screens
+          height: auto;
+          max-height: 40vh; // Limit height to maintain horizontal appearance
+          object-fit: cover; // Cover for horizontal effect
+          object-position: center;
           opacity: 0.85;
-          object-fit: contain;
           animation: float 3s ease-in-out infinite, subtleGlow 4s ease-in-out infinite alternate;
           filter: brightness(1.03) contrast(1.02) saturate(1.05);
+          border-radius: 8px;
 
           &:hover {
             opacity: 0.88;
