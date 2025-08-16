@@ -762,11 +762,22 @@ body {
     .music-player {
       top: 20px;
       right: 20px;
-      padding: 12px 20px;
-      font-size: 12px;
+      padding: 12px 16px;
+      font-size: 11px;
+      max-width: 140px;
 
       .music-text {
-        display: none;
+        display: block; // Show text on mobile
+        font-size: 10px;
+        white-space: nowrap;
+      }
+
+      .music-icon {
+        gap: 1px;
+
+        .note {
+          font-size: 12px;
+        }
       }
     }
 
@@ -888,6 +899,28 @@ body {
   }
 
   @media (max-width: 480px) {
+    .music-player {
+      top: 15px;
+      right: 15px;
+      padding: 10px 12px;
+      font-size: 10px;
+      max-width: 120px;
+
+      .music-text {
+        display: block; // Ensure text shows on small screens
+        font-size: 9px;
+        line-height: 1.2;
+      }
+
+      .music-icon {
+        gap: 1px;
+
+        .note {
+          font-size: 11px;
+        }
+      }
+    }
+
     .invitation-image {
       min-height: 60vh; // Increased height for very small screens
       display: flex;
