@@ -1,6 +1,19 @@
 <!-- Wedding Invitation for Mohammed & Mahinour -->
 
 <div class="wedding-invitation">
+  <!-- Autoplay Prompt (shown when autoplay is blocked) -->
+  <div class="autoplay-prompt" *ngIf="showAutoplayPrompt" (click)="enableMusic()">
+    <div class="prompt-content">
+      <div class="music-icon-large">
+        <span class="note">♪</span>
+        <span class="note">♫</span>
+      </div>
+      <h3>🎵 Enable Wedding Music</h3>
+      <p>Click anywhere to play our special wedding song</p>
+      <div class="pulse-effect"></div>
+    </div>
+  </div>
+
   <!-- Music Player Button -->
   <button class="music-player" (click)="toggleMusic()" [class.playing]="isPlaying">
     <div class="music-icon">

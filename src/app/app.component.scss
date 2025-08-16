@@ -21,7 +21,7 @@ body {
     top: 30px;
     right: 30px;
     z-index: 1000;
-    background: linear-gradient(135deg, rgba(181, 153, 154, 0.9), rgba(197, 153, 155, 0.9));
+    background: linear-gradient(135deg, #a76f72, #b17a7d);
     border: none;
     border-radius: 50px;
     padding: 15px 25px;
@@ -34,13 +34,13 @@ body {
     align-items: center;
     gap: 10px;
     backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 32px rgba(167, 111, 114, 0.3);
     transition: all 0.3s ease;
 
     &:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-      background: linear-gradient(135deg, rgba(197, 153, 155, 0.95), rgba(181, 153, 154, 0.95));
+      box-shadow: 0 12px 40px rgba(167, 111, 114, 0.4);
+      background: linear-gradient(135deg, #b17a7d, #9b656a);
     }
 
     .music-icon {
@@ -80,6 +80,133 @@ body {
     0%, 100% { transform: translateY(0) scale(1) rotate(0deg); }
     25% { transform: translateY(-2px) scale(1.2) rotate(-5deg); }
     75% { transform: translateY(-1px) scale(1.1) rotate(5deg); }
+  }
+
+  // AUTOPLAY PROMPT - Elegant overlay when autoplay is blocked
+  .autoplay-prompt {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    cursor: pointer;
+    animation: fadeInPrompt 0.8s ease-out;
+
+    .prompt-content {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 244, 240, 0.95));
+      padding: 50px 40px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      max-width: 420px;
+      margin: 20px;
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(197, 153, 155, 0.1), transparent 70%);
+        animation: shimmer 3s ease-in-out infinite;
+      }
+
+      .music-icon-large {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-bottom: 25px;
+        position: relative;
+        z-index: 1;
+
+        .note {
+          font-size: 32px;
+          color: #c5999b;
+          animation: noteFloat 2.5s ease-in-out infinite;
+
+          &:nth-child(2) {
+            animation-delay: 0.4s;
+          }
+        }
+      }
+
+      h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 28px;
+        color: #5a4a4a;
+        margin-bottom: 18px;
+        font-weight: 600;
+        position: relative;
+        z-index: 1;
+      }
+
+      p {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 18px;
+        color: #6a5a5a;
+        margin-bottom: 30px;
+        line-height: 1.6;
+        position: relative;
+        z-index: 1;
+      }
+
+      .pulse-effect {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 4px;
+        background: linear-gradient(90deg, #c5999b, #b5999a);
+        border-radius: 2px;
+        animation: pulseBar 2s ease-in-out infinite;
+      }
+    }
+  }
+
+  @keyframes fadeInPrompt {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+      backdrop-filter: blur(0px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+      backdrop-filter: blur(15px);
+    }
+  }
+
+  @keyframes noteFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-12px) rotate(-15deg); }
+    75% { transform: translateY(-6px) rotate(15deg); }
+  }
+
+  @keyframes shimmer {
+    0%, 100% { transform: rotate(0deg) translate(0, 0); }
+    50% { transform: rotate(180deg) translate(10px, 10px); }
+  }
+
+  @keyframes pulseBar {
+    0%, 100% {
+      width: 60px;
+      opacity: 0.7;
+    }
+    50% {
+      width: 80px;
+      opacity: 1;
+    }
   }
 
   // FIRST SECTION: INVITATION IMAGE
@@ -416,7 +543,7 @@ body {
         }
 
         .directions-btn {
-          background: linear-gradient(135deg, #D4B5B7, #C5999B);
+          background: linear-gradient(135deg, #a76f72, #b17a7d);
           color: white;
           border: none;
           padding: 15px 35px;
@@ -427,12 +554,12 @@ body {
           transition: all 0.3s ease;
           font-weight: 600;
           letter-spacing: 1px;
-          box-shadow: 0 8px 25px rgba(197, 153, 155, 0.3);
+          box-shadow: 0 8px 25px rgba(167, 111, 114, 0.3);
 
           &:hover {
-            background: linear-gradient(135deg, #C5999B, #B5999A);
+            background: linear-gradient(135deg, #b17a7d, #9b656a);
             transform: translateY(-2px);
-            box-shadow: 0 12px 30px rgba(197, 153, 155, 0.4);
+            box-shadow: 0 12px 30px rgba(167, 111, 114, 0.4);
           }
         }
       }
@@ -525,7 +652,7 @@ body {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, #D4B5B7, #C5999B);
+            background: linear-gradient(135deg, #a76f72, #b17a7d);
             color: white;
             text-decoration: none;
             padding: 18px 30px;
@@ -535,12 +662,12 @@ body {
             font-weight: 600;
             letter-spacing: 1px;
             transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(197, 153, 155, 0.3);
+            box-shadow: 0 8px 25px rgba(167, 111, 114, 0.3);
 
             &:hover {
-              background: linear-gradient(135deg, #C5999B, #B5999A);
+              background: linear-gradient(135deg, #b17a7d, #9b656a);
               transform: translateY(-3px);
-              box-shadow: 0 12px 35px rgba(197, 153, 155, 0.4);
+              box-shadow: 0 12px 35px rgba(167, 111, 114, 0.4);
             }
           }
         }
